@@ -13,7 +13,7 @@ if [ "$limit" -lt 65536 ]; then
     ulimit -n 65536;
 fi
 
-trap "pkill -SIGTERM -f java" 15
+trap "pkill -SIGTERM -f java; echo SIGTERMd java; exit" 15
     
 .$NEO4J_HOME/bin/neo4j console
 
