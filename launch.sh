@@ -15,5 +15,5 @@ fi
 
 trap "pkill -SIGTERM -f java; echo SIGTERMd java; exit" 15
     
-.$NEO4J_HOME/bin/neo4j console & ; wait
-
+.$NEO4J_HOME/bin/neo4j console &
+wait
