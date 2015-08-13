@@ -1,6 +1,6 @@
 ## Neo4J dependency: dockerfile/java
 ## get java from trusted build
-from java:oracle-java7
+from java:7
 maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
 
 ## install neo4j according to http://www.neo4j.org/download/linux
