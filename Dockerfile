@@ -10,7 +10,7 @@ maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
 
 run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
-    apt-get update ; apt-get install neo4j=2.2.1 -y
+    apt-get update ; apt-get install neo4j=3.1.3 -y
 
 ## add launcher and set execute property
 ## clean sources
@@ -21,9 +21,7 @@ run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
 add launch.sh /
 run chmod +x /launch.sh && \
     apt-get clean && \
-    sed -i "s|#node_auto_indexing|node_auto_indexing|g" /var/lib/neo4j/conf/neo4j.properties && \
-    sed -i "s|#node_keys_indexable|node_keys_indexable|g" /var/lib/neo4j/conf/neo4j.properties && \ 
-    sed -i "s|#allow_store_upgrade|allow_store_upgrade|g" /var/lib/neo4j/conf/neo4j.properties
+    sed -i "s|#dbms.allow_format_migration|dbms.allow_format_migration|g" /var/lib/neo4j/conf/neo4j.conf
 
 # expose REST and shell server ports
 expose 7474
