@@ -21,7 +21,7 @@ run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
 add launch.sh /
 run chmod +x /launch.sh && \
     apt-get clean && \
-    sed -i "s|#dbms.allow_format_migration|dbms.allow_format_migration|g" /var/lib/neo4j/conf/neo4j.conf
+    sed -i "s|#dbms.allow_format_migration|dbms.allow_format_migration|g" /etc/neo4j/neo4j.conf
 
 # expose REST and shell server ports
 expose 7474
