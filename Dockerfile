@@ -8,6 +8,8 @@ maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
 # Create an apt sources.list file
 # Find out about the files in neo4j repo ; install neo4j community edition
 
+run apt-get install apt-transport-https ca-certificates -y
+
 run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
     apt-get update ; apt-get install neo4j=3.1.3 -y
