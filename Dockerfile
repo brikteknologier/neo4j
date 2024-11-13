@@ -1,6 +1,6 @@
 ## Neo4J dependency: dockerfile/java
 ## get java from trusted build
-from openjdk:8
+from openjdk:11
 maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
 
 ## install neo4j according to http://www.neo4j.org/download/linux
@@ -8,10 +8,9 @@ maintainer Tiago Pires, tiago-a-pires@ptinovacao.pt
 # Create an apt sources.list file
 # Find out about the files in neo4j repo ; install neo4j community edition
 
-run apt-get install apt-transport-https ca-certificates -y
-
-run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
-    echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
+run mkdir -p /etc/apt/keyrings
+run wget -O - https://debian.neo4j.com/neotechnology.gpg.key | gpg --dearmor -o /etc/apt/keyrings/neotechnology.gpg && \
+    echo 'deb [signed-by=/etc/apt/keyrings/neotechnology.gpg] https://debian.neo4j.com stable legacy' > /etc/apt/sources.list.d/neo4j.list && \
     apt-get update ; apt-get install neo4j=3.1.3 -y
 
 ## add launcher and set execute property
